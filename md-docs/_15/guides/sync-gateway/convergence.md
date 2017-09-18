@@ -57,7 +57,7 @@ Plan:
 In Sync Gateway 1.5 you have the ability to define multiple server URLs in the Sync Gateway configuration, and full support for SSL between Sync Gateway and Couchbase Server.
 
 - Sync Gateway Reference ([databases.foo\_db.server](../1.4/guides/sync-gateway/config-properties/index.html#1.5/databases-foo_db-server))
-- Sync Gateway Accelerator Reference ([databases.foo_db.server](../guides/sync-gateway/accelerator.html#1.5/databases-foo_db-server), [cluster_config.server](../guides/sync-gateway/accelerator.html#1.5/cluster_config-server))
+- Sync Gateway Accelerator Reference ([databases.foo_db.server](../1.4/guides/sync-gateway/accelerator.html#1.5/databases-foo_db-server), [cluster_config.server](../1.4/guides/sync-gateway/accelerator.html#1.5/cluster_config-server))
 
 ### Mobile Convergence
 
