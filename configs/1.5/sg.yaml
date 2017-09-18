@@ -321,6 +321,23 @@ properties:
                       
                   In a deployment with Sync Gateway Accelerator, feed-based import processing is performed by the Accelerator nodes. Import work is sharded across the Accelerator cluster, in the same way that indexing work is sharded today.
                   
+                  #### Tombstones
+                  
+                  When convergence is enabled, mobile tombstones are now also server tombstones. The document body is deleted, and the information required to replicate the tombstone is retained in the mobile extended attribute.
+                  
+                  ##### Metadata Purge Interval
+                  
+                  The server's metadata purge interval becomes an important consideration for mobile deployments under convergence. When the server purges a tombstone (based on the metadata purge interval), that tombstone will no longer be replicated to mobile clients.
+                  
+                  For most mobile deployments, customers should set the server's metadata purge interval based on their expected client replication frequency, to ensure that clients are notified of the tombstone prior to that tombstone being purged.
+                  
+                  The default Metadata Purge Interval is set to 3 days which can potentially result in tombstones being purged before all clients have had a chance to get notified of it.
+                  
+                  Ways to tune the Metadata Purge Interval on Couchbase Server:
+                  
+                  - Bucket settings [on UI](https://developer.couchbase.com/documentation/server/5.0/settings/configure-compact-settings.html)
+                  - Bucket endpoint [on the REST API](https://developer.couchbase.com/documentation/server/4.6/rest-api/rest-bucket-create.html)
+                  
                   #### Implementation notes for XATTRs:
                   
                   Extended attributes (xattrs) are JSON objects that can be associated with Couchbase documents. Each document can be associated with zero or more extended attributes. There are currently three types (user, system, virtual). Mobile Convergence uses a system extended attribute, which has the following characteristics central to convergence:
