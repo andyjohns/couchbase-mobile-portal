@@ -308,7 +308,7 @@ properties:
                   
                   #### Import process
                   
-                  Import is the name for the process by which non-Sync Gateway writes obtain mobile metadata. Any non-Sync Gateway write is eligible for import.
+                  Import is the name for the process by which non-Sync Gateway writes obtain mobile metadata. Any non-Sync Gateway write is eligible for import. A filter function can be specified using the [databases.foo_db.import_filter](#1.5/databases-foo_db-import_filter) property to only import specific documents.
                   
                   The document is first run through the Sync Function to compute read security and routing, with the following specifics/differences:
                   
