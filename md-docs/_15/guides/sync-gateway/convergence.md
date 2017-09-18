@@ -53,20 +53,15 @@ Plan:
 ## Beta 2
 
 - Mobile Convergence.
-- In Sync Gateway 1.5 you have the ability to define multiple server URLs in the Sync Gateway configuration, and full support for SSL between Sync Gateway and Couchbase Server (ref [databases.foo\_db.server](../1.4/guides/sync-gateway/config-properties/index.html)).
+- In Sync Gateway 1.5 you have the ability to define multiple server URLs in the Sync Gateway configuration, and full support for SSL between Sync Gateway and Couchbase Server (ref [databases.foo\_db.server](../1.4/guides/sync-gateway/config-properties/index.html#1.5-beta2/databases-foo_db-enable_shared_bucket_access)).
 
 ## Mobile Convergence
 
 ### What is Mobile Convergence?
 
-The core functionality provided by convergence is the ability for mobile and server applications to read from and write to the same bucket.
+The core functionality provided by convergence is the ability for mobile and server applications to read from and write to the same bucket. It is an opt-in feature that can be enabled through the [databases.foo_db.unsupported.enable\_extended\_attributes](../1.4/guides/sync-gateway/config-properties/index.html#1.5/databases-foo_db-unsupported-enable_extended_attributes) property in the configuration file.
 
-Mobile applications require additional metadata in order to manage security and replication. Until now, this information has always been stored in the document body. This required users to interact w/ mobile documents only through Sync Gateway, to avoid issues like:
-
-- SDK writes failing to preserve or update mobile metadata
-- SDK reads including (usually unwanted) mobile metadata
-
-Convergence is an opt-in feature in Sync Gateway 1.5. Customers must explicitly enable convergence in the Sync Gateway config, using the [databases.foo_db.enabled\_shared\_bucket\_access](../1.4/guides/sync-gateway/config-properties/index.html) property. The feature was made opt-in primarily out of consideration for existing customers upgrading from Sync Gateway 1.4. It ensures that their existing configs will continue to work as-is, and supports upgrade without bringing down the entire Sync Gateway cluster.
+The feature was made opt-in primarily out of consideration for existing customers upgrading from Sync Gateway 1.4. It ensures that their existing configs will continue to work as-is, and supports upgrade without bringing down the entire Sync Gateway cluster.
 
 ### Compatibility matrix
 
