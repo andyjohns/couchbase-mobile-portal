@@ -65,6 +65,10 @@ The core functionality provided by convergence is the ability for mobile and ser
 
 The feature was made opt-in primarily out of consideration for existing customers upgrading from Sync Gateway 1.4. It ensures that their existing configs will continue to work as-is, and supports upgrade without bringing down the entire Sync Gateway cluster.
 
+### Revs Limit lower limit
+
+The [databases.foo_db.revs\_limit](../1.4/guides/sync-gateway/config-properties/index.html#1.5/databases-foo_db-revs_limit) property now has a minimal value. See the API reference for more detail.
+
 ## Compatibility matrix
 
 ### Sync Gateway - Couchbase Server
