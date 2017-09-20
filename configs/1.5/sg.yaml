@@ -315,7 +315,7 @@ properties:
                   - The import is processed with an admin user context in the Sync Function, similar to writes made through the Sync Gateway Admin API. This means that `requireAccess`, `requireUser` and `requireRole` calls in the Sync Function are treated as no-ops.
                   - During import, `oldDoc` is `nil` when the Sync Function is executed.
                   
-                  Only one node in a Sync Gateway cluster should be configured for feed-based import - it processes the full DCP stream.
+                  Only one node in a Sync Gateway cluster should be configured for feed-based import - it processes the full DCP stream. The [Import+](#1.5/log) log key can be used to troubleshoot the import process further in the logs.
                   
                   ##### Import and Sync Gateway Accelerator
                       
@@ -406,7 +406,7 @@ properties:
       - Feed: Server-feed processing.
       - HTTP: All requests made to the Sync Gateway REST APIs (Sync and Admin). Note that the log keyword HTTP is always enabled, which means that HTTP requests and error responses are always logged (in a non-verbose manner). HTTP+ provides more verbose HTTP logging.
       - Replicate: Log messages related to replications between Sync Gateways (using sg-replicate). This tag cannot be used for replications initiated by Couchbase Lite.
-      - Import+: similar functionality to CRUD+ logging for the import flow, including logging document and revision ids for imported documents. This can be useful when attempting to troubleshoot failed imports.
+      - Import+: This logging key was introduced in Sync Gateway 1.5 to help troubleshoot the import process of a document (this is the Sync Gateway process to make a document that was added through N1QL or the Server SDKs mobile-aware). This log key can be useful to troubleshoot why a given document was not successfully imported.
     type: string
     default: '["HTTP"]'
   logFilePath:
@@ -440,7 +440,7 @@ properties:
               - Feed: Server-feed processing.
               - HTTP: All requests made to the Sync Gateway REST APIs (Sync and Admin). Note that the log keyword HTTP is always enabled, which means that HTTP requests and error responses are always logged (in a non-verbose manner). HTTP+ provides more verbose HTTP logging.
               - Replicate: Log messages related to replications between Sync Gateways (using sg-replicate). This tag cannot be used for replications initiated by Couchbase Lite.
-              - Import+: similar functionality to CRUD+ logging for the import flow, including logging document and revision ids for imported documents. This can be useful when attempting to troubleshoot failed imports.
+              - Import+: This logging key was introduced in Sync Gateway 1.5 to help troubleshoot the import process of a document (this is the Sync Gateway process to make a document that was added through N1QL or the Server SDKs mobile-aware). This log key can be useful to troubleshoot why a given document was not successfully imported.
             type: string
             default: '["HTTP"]'
           logLevel:
