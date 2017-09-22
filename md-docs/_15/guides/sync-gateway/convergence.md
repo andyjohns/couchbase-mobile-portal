@@ -68,30 +68,6 @@ Mobile applications require additional metadata in order to manage security and 
 
 Convergence is an opt-in feature in Sync Gateway 1.5. Customers must explicitly enable convergence in the Sync Gateway config, using the [databases.foo_db.enabled\_shared\_bucket\_access](../1.4/guides/sync-gateway/config-properties/index.html) property. The feature was made opt-in primarily out of consideration for existing customers upgrading from Sync Gateway 1.4. It ensures that their existing configs will continue to work as-is, and supports upgrade without bringing down the entire Sync Gateway cluster.
 
-### Compatibility matrix
-
-#### Sync Gateway - Couchbase Server
-
-The table below shows the versions of Sync Gateway compatible with Couchbase Server.
-
-|CB Server/Sync Gateway|SG 1.5|SG 1.5 (XATTRs)|
-|:--------------|:------|:-----|
-|CB 4.0|✔|✖|
-|CB 4.1|✔|✖|
-|CB 4.5|✔|✖|
-|CB 4.6|✔|✖|
-|CB 5.0|✔|✔|
-
-For all of the above, the [bucket type](https://developer.couchbase.com/documentation/server/5.0/architecture/core-data-access-buckets.html#concept_qqk_4r2_xs) must be Couchbase. Usage of Ephemeral and Memcached buckets with Couchbase Mobile is not supported.
-
-#### Couchbase Lite - Sync Gateway
-
-|CB Lite/Sync Gateway|SG 1.5|SG 1.5 (XATTRs)|
-|:--------------|:------|:-----|
-|CBL 1.3|✔|✔|
-|CBL 1.4|✔|✔|
-|CBL 2.0|✔|✔|
-
 ### Extended Attributes
 
 Previously, mobile metadata was stored along with the document body (as a `_sync` property). Updates made anywhere other than Sync Gateway would invalidate or overwrite that data, breaking mobile replication.  In Sync Gateway 1.5, the mobile metadata is moved out of the document body and into a system extended attribute, only accessible by Sync Gateway.  
